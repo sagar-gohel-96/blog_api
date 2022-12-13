@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
       path += "about.html";
       break;
     case "/about-me":
+      // res.setHeader({Location : '/about'});
       res.writeHead(301, { Location: "/about" });
       res.end();
       break;
@@ -17,6 +18,7 @@ const server = http.createServer((req, res) => {
       path += "404.html";
       break;
   } 
+  // res.setHeader({'Content-Type' : 'text/html'});
   res.writeHead(200, {'Content-Type': 'text/html'});
   fs.readFile(path, (err, data) => {
     if (err) throw err;

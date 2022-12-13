@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
    try{
     // res.sendFile("./views/about.html",{ root : __dirname })
-    res.render('about');
+    res.render('about' , {title : "About"});
     // res.end();
    } catch(err) {
         console.error(err);
@@ -43,13 +43,13 @@ app.get("/about", (req, res) => {
 // })
 //create blog 
 app.get('/blogs/create',(req, res)=>{
-res.render('create')
+res.render('create',{title : "Create New Blog"})
 })
 
 //404 page
 app.use((req,res)=>{
     // res.status(400).sendFile("./views/404.html",{ root : __dirname })
-    res.status(404).render('404');
+    res.status(404).render('404',{title : "404"});
 })
 
 
