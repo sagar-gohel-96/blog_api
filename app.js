@@ -8,9 +8,17 @@ app.listen(port);
 app.set("view engine", "ejs")
 //home page
 app.get("/", (req, res) => {
+    const blogs = [
+        {title: 'Trees ', snippet : " In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they're still beautiful"
+      },
+      {title: 'Earth', snippet : "Forget not that the earth delights to feel your bare feet and the winds long to play with your hair"},
+      {
+        title: 'Heaven', snippet : " Heaven is under our feet as well as over our heads"
+      }
+    ]
     try{
         // res.sendFile("./views/index.html",{ root : __dirname })
-        res.render('index' , {title : "Home"})
+        res.render('index' , {title : "Home", blogs})
         // res.end();
        } catch(err) {
             console.error(err);
